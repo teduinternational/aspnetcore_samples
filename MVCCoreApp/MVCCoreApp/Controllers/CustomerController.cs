@@ -6,11 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MVCCoreApp.Controllers
 {
+    [Route("khach-hang")]
     public class CustomerController : Controller
     {
-        public IActionResult Index()
+        [Route("vip")]
+        public string Vip()
         {
-            return View();
+            return "Khach hang vip";
+        }
+
+        [Route("")]
+        [Route("normal/{id?}")]
+        public string Normal(int id)
+        {
+            return "Khach hang thuong voi id:"  + id;
         }
     }
 }

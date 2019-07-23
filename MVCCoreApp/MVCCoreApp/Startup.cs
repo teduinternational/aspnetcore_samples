@@ -27,17 +27,17 @@ namespace MVCCoreApp
             }
             //app.UseMvcWithDefaultRoute();
 
-          
 
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute("secure","secure", new
-                {
-                    Controller="Admin",Action="Index"
-                });
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvc();
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute("secure","secure", new
+            //    {
+            //        Controller="Admin",Action="Index"
+            //    });
+            //    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            //});
 
             app.Run(async (context) =>
             {
