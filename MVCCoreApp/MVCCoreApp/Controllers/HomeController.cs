@@ -5,10 +5,10 @@ namespace MVCCoreApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(int id)
         {
             var model = new IndexModel();
-            model.Message = "Hello from Model";
+            model.Message = "Hello from Model, ID = " +id;
             return View(model);
         }
     }

@@ -25,18 +25,24 @@ namespace MVCCoreApp
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
 
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
+          
 
-         
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-            //});
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("secure","secure", new
+                {
+                    Controller="Admin",Action="Index"
+                });
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("Failed to find route");
+            });
         }
     }
 }
