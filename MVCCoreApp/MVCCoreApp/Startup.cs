@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MVCCoreApp
@@ -29,15 +31,45 @@ namespace MVCCoreApp
 
 
 
-            app.UseMvc();
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute("secure","secure", new
-            //    {
-            //        Controller="Admin",Action="Index"
-            //    });
-            //    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-            //});
+            // app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                //routes.MapRoute("secure", "secure", new
+                //{
+                //    Controller = "Admin",
+                //    Action = "Index"
+                //});
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id:alpha:minlength(6)?}");
+
+                //routes.MapRoute("default", "{controller}/{action}/{id}",
+                //    new { controller = "Home", action = "Index" },
+                //    new
+                //    {
+                //        id = new CompositeRouteConstraint(
+                //            new IRouteConstraint[]
+                //            {
+                //                new AlphaRouteConstraint(), 
+                //                new MinLengthRouteConstraint(6), 
+                //            })
+                //    });
+
+
+                //routes.MapRoute("default", "{controller}/{action}/{id}",
+                //    new {controller = "Home",action="Index"},
+                //    new { id = new IntRouteConstraint()});
+
+                //routes.MapRoute("default",
+                //    "post/{id:int}",
+                //    new { controller = "Post", action = "PostsByID" });
+
+                //routes.MapRoute("anotherRoute",
+                //    "post/{id:alpha}",
+                //    new { controller = "Post", action = "PostsByPostName" });
+
+                //routes.MapRoute("default",
+                //    "{controller}/{action}/{year:regex(^\\d{{4}}$)}",
+                //    new { controller = "Home", action = "Index" });
+            });
 
             app.Run(async (context) =>
             {
