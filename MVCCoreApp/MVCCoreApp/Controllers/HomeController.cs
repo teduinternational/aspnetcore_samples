@@ -1,10 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MVCCoreApp.Models;
 
 namespace MVCCoreApp.Controllers
 {
     public class HomeController : Controller
     {
+        HttpContext ctx;
+        public HomeController(IHttpContextAccessor _ctx)
+        {
+            ctx = _ctx.HttpContext;
+        }
         //[Route("Home/Index/{id:int}")]
         //public IActionResult Index(int id)
         //{
@@ -20,11 +27,19 @@ namespace MVCCoreApp.Controllers
         //    return View(model);
         //}
 
-        public IActionResult Index(string id)
+        //public IActionResult Index(string id)
+        //{
+        //    var model = new IndexModel();
+        //    model.Message = "Hello from Model, Year = " + id;
+        //    return View(model);
+        //}
+
+        public IActionResult Index(int id)
         {
-            var model = new IndexModel();
-            model.Message = "Hello from Model, Year = " + id;
-            return View(model);
+            if (id == 0)
+                return NotFound();
+
+            return Content("Hello");
         }
     }
 }
