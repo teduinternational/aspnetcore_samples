@@ -7,18 +7,13 @@ namespace MVCCoreApp.Controllers
 {
     public class HomeController : Controller
     {
-        HttpContext ctx;
-        public HomeController(IHttpContextAccessor _ctx)
-        {
-            ctx = _ctx.HttpContext;
-        }
         //[Route("Home/Index/{id:int}")]
-        //public IActionResult Index(int id)
-        //{
-        //    var model = new IndexModel();
-        //    model.Message = "Hello from Model, ID = " +id;
-        //    return View(model);
-        //}
+        public IActionResult Index(int id)
+        {
+            var model = new IndexModel();
+            model.Message = "Hello from Model, ID = " + id;
+            return View(model);
+        }
 
         //public IActionResult Index(int year)
         //{
@@ -34,12 +29,12 @@ namespace MVCCoreApp.Controllers
         //    return View(model);
         //}
 
-        public IActionResult Index(int id)
-        {
-            if (id == 0)
-                return NotFound();
+        //public IActionResult Index(int id)
+        //{
+        //    if (id == 0)
+        //        return NotFound();
 
-            return Content("Hello");
-        }
+        //    return Content("Hello");
+        //}
     }
 }

@@ -39,7 +39,8 @@ namespace MVCCoreApp
                 //    Controller = "Admin",
                 //    Action = "Index"
                 //});
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id:alpha:minlength(6)?}");
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id:int?}");
+                //routes.MapRoute("default", "{controller=Home}/{action=Index}/{id:alpha:minlength(6)?}");
 
                 //routes.MapRoute("default", "{controller}/{action}/{id}",
                 //    new { controller = "Home", action = "Index" },
