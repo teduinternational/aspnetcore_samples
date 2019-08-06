@@ -9,66 +9,15 @@ namespace MVCCoreApp.Controllers
 {
     public class ProductController : Controller
     {
+        public List<ProductModel> products = new List<ProductModel>()
+        {
+            new ProductModel(){Id =1, Name = "Product 1", Available = true,Price = 10000, PromotionPrice = 8000},
+            new ProductModel(){Id =2, Name = "Product 2", Available = false,Price = 20000, PromotionPrice = 18000}
+        };
         public IActionResult Index()
         {
-            return View();
+            
+            return View(products);
         }
-
-
-        //Fail: http://localhost:6001/product/edit
-        //Ok: http://localhost:6001/product/modify
-        //[ActionName("modify")]
-        //[Route("Product/Modify")]
-        //[NonAction]
-        [HttpGet]
-        public string Edit(string id)
-        {
-            return "Hello from edit method";
-        }
-
-        [HttpPost]
-        public IActionResult Edit(ProductModel model)
-        {
-            return RedirectToAction("Index", "Product");
-        }
-
-        [HttpGet]
-        public List<ProductModel> GetAll()
-        {
-            return new List<ProductModel>();
-        }
-
-        //GET: product/test
-        [HttpGet("{id}")]
-        public List<ProductModel> GetById(string id)
-        {
-            return new List<ProductModel>();
-        }
-
-        //POST: product
-        [HttpPost]
-        public IActionResult Create(ProductModel product)
-        {
-           //TODO: Create a product in DB
-           return Ok();
-        }
-
-        //PUT: product/10
-        [HttpPut("{id}")]
-        public IActionResult Update(string id, [FromBody]ProductModel product)
-        {
-            //TODO: Create a product in DB
-            return Ok();
-        }
-
-        //DELETE: product/10
-        [HttpDelete("{id}")]
-        public IActionResult Update(string id)
-        {
-            //TODO: Create a product in DB
-            return Ok();
-        }
-
-
     }
 }
