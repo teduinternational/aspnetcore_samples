@@ -10,6 +10,14 @@ namespace MvcLayout.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Greeting"] = "Hello world";
+            ViewBag.Product = new ProductModel()
+            {
+                Id=1,
+                Name = "TEDU",
+                Brand = "TEDU",
+                Price = 1000
+            };
             return View();
         }
     }

@@ -1,8 +1,12 @@
-﻿@section header{
+﻿
+@section header{
     <link href="~/css/index.css" rel="stylesheet" />
 }
 @section footer{
     <script src="~/js/index.js"></script>
 }
-<h1>Home Index Content</h1>
+<h1>@ViewBag.Greeting</h1>
+
+@ViewBag.Product?.Name <br/>
+@ViewBag.Product?.Price<br/>
 
