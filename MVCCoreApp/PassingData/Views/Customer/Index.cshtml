@@ -1,0 +1,23 @@
+﻿@using PassingData.Models
+@model Customer
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+@{
+    //Customer customer = ViewBag.Customer;
+    //Customer customer = ViewData.Model;
+    <p>Id :@Model.CustomerID </p>
+    <p>Name :@Model.Name </p>
+    <p>Name :@Model.Address </p>
+}
+</body>
+</html>
