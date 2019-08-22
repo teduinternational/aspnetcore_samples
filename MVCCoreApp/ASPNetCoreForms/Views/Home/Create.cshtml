@@ -1,0 +1,28 @@
+﻿@model ASPNetCoreForms.Models.ProductEditModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+<h2>Create</h2>
+ 
+<form action="/Home/Create" method="post">
+    <label for="Name">Name</label>
+    <input type="text" id="Name" name="Name" />
+ 
+    <label for="Rate">Rate</label>
+    <input type="text" id="Rate" name="Rate" />
+    <label for="Rating">Rating</label>
+    <input type="text" id="Rating" name="Rating" />
+
+    <input type="submit" name="submit" />
+</form>
+</body>
+</html>

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCoreApp", "MVCCoreApp\MV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassingData", "PassingData\PassingData.csproj", "{A0707B2D-6CB1-430E-A7C1-2D97621D381F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNetCoreForms", "ASPNetCoreForms\ASPNetCoreForms.csproj", "{F50F8D88-2148-447B-A236-E90E96161C23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A0707B2D-6CB1-430E-A7C1-2D97621D381F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0707B2D-6CB1-430E-A7C1-2D97621D381F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0707B2D-6CB1-430E-A7C1-2D97621D381F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50F8D88-2148-447B-A236-E90E96161C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50F8D88-2148-447B-A236-E90E96161C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50F8D88-2148-447B-A236-E90E96161C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50F8D88-2148-447B-A236-E90E96161C23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
