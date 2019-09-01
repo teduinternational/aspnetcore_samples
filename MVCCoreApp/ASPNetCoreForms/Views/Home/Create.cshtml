@@ -1,4 +1,6 @@
 ﻿@model ASPNetCoreForms.Models.ProductEditModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 @{
     Layout = null;
 }
@@ -11,18 +13,19 @@
     <title>Create</title>
 </head>
 <body>
-<h2>Create</h2>
- 
-<form action="/Home/Create" method="post">
-    <label for="@Model.Name">Name</label>
-    <input type="text" id="Name" name="@Model.Name" />
- 
-    <label for="@Model.Rate">Rate</label>
-    <input type="text" id="Rate" name="@Model.Rate" />
-    <label for="@Model.Rating">Rating</label>
-    <input type="text" id="Rating" name="@Model.Rating" />
+    <h2>Create</h2>
 
-    <input type="submit" name="submit" />
-</form>
+    <form asp-action="Create" asp-controller="Home" method="post">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" />
+
+        <label asp-for="Rate"></label>
+        <input type="text" asp-for="Rate" />
+
+        <label asp-for="Rating"></label>
+        <input type="text" asp-for="Rating" />
+
+        <input type="submit" name="submit" />
+    </form>
 </body>
 </html>
