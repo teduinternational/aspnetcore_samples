@@ -17,14 +17,16 @@
 
     <form asp-action="Create" asp-controller="Home" method="post">
         <label asp-for="Name"></label>
-        <input type="text" asp-for="Name" />
+        <input asp-for="Name" />
 
-        <label asp-for="Rate"></label>
-        <input type="text" asp-for="Rate" />
+        <label asp-for="Rate" ></label>
+        <input asp-for="Rate" asp-format="{0:N2}"/>
 
-        <label asp-for="Rating"></label>
-        <input type="text" asp-for="Rating" />
+        <label asp-for="Rating" ></label>
+        <input asp-for="Rating" />
 
+        <label asp-for="CreatedDate"></label>
+        <input asp-for="CreatedDate" />        
         <input type="submit" name="submit" />
     </form>
 </body>
