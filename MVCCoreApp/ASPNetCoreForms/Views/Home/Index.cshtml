@@ -1,4 +1,4 @@
-﻿
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = null;
 }
@@ -9,10 +9,13 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <environment include="Development, Staging" exclude="Development">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    </environment>
 </head>
 <body>
     <h2>Index</h2>
-
+    
     <a href="/Home/Create">Create</a>
 </body>
 </html>
