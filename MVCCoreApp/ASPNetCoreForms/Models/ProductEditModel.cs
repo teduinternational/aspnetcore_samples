@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace ASPNetCoreForms.Models
 {
@@ -13,6 +14,8 @@ namespace ASPNetCoreForms.Models
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
         public decimal? Rate { get; set; }
+
+        [BindNever]
         public int Rating { get; set; }
 
         public DateTime CreatedDate { set; get; }
