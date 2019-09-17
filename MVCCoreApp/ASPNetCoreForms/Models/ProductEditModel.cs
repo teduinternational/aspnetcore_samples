@@ -12,6 +12,7 @@ namespace ASPNetCoreForms.Models
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Name is required")]
+        [StringLength(maximumLength:25,MinimumLength =3, ErrorMessage ="Length must be between 3 to 25")]
         public string Name { get; set; }
         public decimal? Rate { get; set; }
 

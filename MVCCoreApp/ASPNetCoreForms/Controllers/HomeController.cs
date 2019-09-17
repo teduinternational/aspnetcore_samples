@@ -33,12 +33,18 @@ namespace ASPNetCoreForms.Controllers
             string message = string.Empty;
             if (ModelState.IsValid)
             {
+                //Check product name exist
+                if (model.Name == "test")
+                {
+                    ModelState.AddModelError("", "This product name was exists");
+                    return View(model);
+                }
                 message = "Product: " + model.Name + ". Rate: "
                           + model.Rate + ". Rating: " + model.Rating + " created successfully";
             }
             else
             {
-                message = "Failed to create the product. Please try again.";
+                return View(model);
             }
             return Content(message);
         }
