@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
 
 namespace MVCCoreApp
 {
@@ -17,29 +19,37 @@ namespace MVCCoreApp
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.EnvironmentName == Environments.Development)
             {
                 app.UseDeveloperExceptionPage();
             }
             //app.UseMvcWithDefaultRoute();
-
+            app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
 
             // app.UseMvc();
-            app.UseMvc(routes =>
+            app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id:int?}");
+                endpoints.MapRazorPages();
+            });
+            // app.UseMvc(routes =>
+            // {
                 //routes.MapRoute("secure", "secure", new
                 //{
                 //    Controller = "Admin",
                 //    Action = "Index"
                 //});
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id:int?}");
+
                 //routes.MapRoute("default", "{controller=Home}/{action=Index}/{id:alpha:minlength(6)?}");
 
                 //routes.MapRoute("default", "{controller}/{action}/{id}",
@@ -70,7 +80,7 @@ namespace MVCCoreApp
                 //routes.MapRoute("default",
                 //    "{controller}/{action}/{year:regex(^\\d{{4}}$)}",
                 //    new { controller = "Home", action = "Index" });
-            });
+            // });
 
             app.Run(async (context) =>
             {
